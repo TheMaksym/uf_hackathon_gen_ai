@@ -12,10 +12,10 @@ app.post('/', async (req,res)=>{
     const { message } = req.body;
     async function query(data) {
         const response = await fetch(
-            "https://www.stack-inference.com/run_deployed_flow?flow_id=652bdd705cf10c1614ca8eb1&org=0450b4eb-4409-4d33-865a-b41294dc13f9",
+            "https://www.stack-inference.com/run_deployed_flow?flow_id=652c3b24de6f96a6105e5d48&org=1d129d0e-5e29-4f99-993d-077f358738a7",
             {
                 headers: {'Authorization':
-                        'Bearer d41cfe42-6d20-478a-8f01-8f5e0e351693',
+                        'Bearer d81ebe16-7310-4e75-9ef1-fad8bd2ce01b',
                     'Content-Type': 'application/json'
                 },
                 method: "POST",
