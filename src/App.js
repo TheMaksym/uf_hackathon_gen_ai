@@ -34,7 +34,7 @@ function App() {
                     Submit
                 </button>
             </form>
-            <div>{response}</div>
+            <div className="output-box">{response}</div>
         </div>
     );
 }
