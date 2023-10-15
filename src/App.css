@@ -1,6 +1,6 @@
 /* Button */
 .button {
-  background-color: #282c34;
+  background-color: #ed170c;
   color: white;
   border: none;
   border-radius: 5px;
@@ -12,11 +12,22 @@
   background-color: #34495e;
 }
 
+body, h1, h2, h3, h4, h5, h6, p, textarea, button {
+  font-family: Ubuntu, sans-serif;
+}
+
+.App h1 {
+  text-align: center;
+}
+
 .output-box {
   border: 1px solid #ccc;
   border-radius: 5px;
   padding: 10px;
   margin-top: 10px;
+  height: auto;
+  max-height: 65vh;
+  overflow-y: auto;
 }
 
 /* Input box */
@@ -27,4 +38,12 @@
   border-radius: 5px;
   padding: 10px;
   font-size: 16px;
+  resize: none;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.input-box:focus {
+  outline: none;
+  height: auto;
 }
