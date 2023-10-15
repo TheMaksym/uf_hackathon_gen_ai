@@ -11,16 +11,19 @@ app.use(bodyParser.json());
 app.use(cors());
 
 app.post('/', async (req,res)=>{
-    const testingMessage = [{"role": "user", "content" : "this is a test"}];
+    const { message } = req.body;
+    const testingMessage = [{"role": "user", "content" : message}];
     const response = await openai.chat.completions.create({
         model: "gpt-3.5-turbo",
         messages: testingMessage,
-        max_tokens: 7,
+        max_tokens: 163,
         temperature: 0,
     });
-    console.log(response)
+    console.log(response.choices[0].message)
+    const responseMessage = response.choices[0].message;
+
     res.json({
-        message: "Hello World!"
+        message: responseMessage.content,
     });
 });
 
