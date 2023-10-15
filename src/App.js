@@ -22,9 +22,11 @@ function App() {
 
   return (
       <div className="App">
+        <h1>Horizon ChatBot</h1>
         <form onSubmit={handleSubmit}>
           <textarea
             value={message}
+            placeholder="Ask Horizon Anything"
             onChange={(e)=> setMessage(e.target.value)}
           ></textarea>
           <button type="submit">Submit</button>
