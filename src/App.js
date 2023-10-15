@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import './styles.css';
 
@@ -18,11 +18,30 @@ function App() {
             .then((res) => res.json())
             .then((data) => setResponse(data.message))
             .catch((error) => console.error('Error:', error));
+        const inputBox = document.querySelector('.input-box');
+        inputBox.style.height = '50px';
+        inputBox.value = '';
+
     };
 
+    const resizeInputBox = () => {
+        const inputBox = document.querySelector('.input-box');
+        const paddingAndBorder = inputBox.offsetHeight - inputBox.clientHeight;
+        inputBox.style.height = inputBox.scrollHeight + paddingAndBorder + 'px';
+    };
+
+    useEffect(() => {
+        resizeInputBox();
+    }, [message]);
+
+    useEffect(() => {
+        const inputBox = document.querySelector('.input-box');
+        inputBox.addEventListener('resize', resizeInputBox);
+    }, []);
+
     return (
-        <div className="App">
-            <h1>Verizon ChatBot</h1>
+        <div className="App" style={{ fontFamily: 'Ubuntu' }}>
+            <h1 className="App-header">Personalized Verizon ChatBot</h1>
             <form onSubmit={handleSubmit}>
         <textarea
             className="input-box"

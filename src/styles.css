@@ -138,3 +138,32 @@ body {
 .list li:has(input:checked) label:hover::before {
   background: hsl(200, 100%, 30%);
 }
+
+input[type="text"],
+span {
+  font-family:  'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 1.75rem;
+  border: 2px solid #666;
+  /* box-sizing: border-box; */
+  /* padding: 0.5em 1em; */
+}
+
+input[type="text"] {
+  width: 6em;
+  padding: 0.5em 1em;
+
+  color: #555;
+  border-radius: 2em;
+  outline: 0;
+}
+
+input[type="text"]:focus {
+  border-color: #ff7996;
+}
+
+span {
+  position: absolute;
+  left: -9999px;
+  display: inline-block;
+  min-width: 6em;
+}
