@@ -25,12 +25,17 @@ app.post('/', async (req,res)=>{
         const result = await response.json();
         return result;
     }
-    query({"in-0": message, "user_id": `<USER or Conversation ID>`}).then((response) => {
+    query({ "in-0": message, "user_id": "<USER or Conversation ID>" }).then((response) => {
         console.log(JSON.stringify(response));
-        // console.log(response.choices[0].message)
-        res.json({
-            message: JSON.stringify(response),
-        });
+
+        if (response && response.hasOwnProperty("out-0")) {
+            const content = response["out-0"];
+            res.json({
+                message: content,
+            });
+        } else {
+            res.status(500).json({ error: "Invalid response format" });
+        }
     });
 });
 
